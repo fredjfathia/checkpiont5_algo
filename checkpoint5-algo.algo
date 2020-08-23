@@ -1,0 +1,33 @@
+FUNCTION is_palindrome(ch :STRING) : BOOLEAN
+VAR
+    n : INTEGER :=ch.length;
+    ch2: STRING ;
+    i : INTEGER ;
+BEGIN
+    IF (n = 0 || n = 1) THEN
+       RETURN true ;
+    END_IF
+    IF (ch[0] = ch[n-1]) THEN
+        ch2:='' ;
+      FOR i FROM 1 TO n-2 DO
+        ch2[i]=ch[i];
+      END_FOR
+      RETURN is_palindrome(ch2);
+    END_IF
+    RETURN false ;
+END 
+
+ALGORITHM Is palindrome
+VAR
+    ch : STRING;
+   b: BOOLEAN;
+BEGIN
+   read(ch);
+   b := is_palindrome(ch);
+   IF (b=true) THEN
+       write('is palindrome') ;
+   ELSE
+       write('is not palindrome') ;
+   END_IF
+
+END
